@@ -8,6 +8,7 @@ Merupakan Website Akreditasi Sekolah yang didalamnya memuat file instrumen akred
   <li>jQuery Ajax</li>
   <li>Ace Admin Template</li>
 </ul>
+
 # Fitur dan Dokumentasi
 <strong>Beckend</strong>
 <img src="documentations/admin-dashboard.PNG" alt="Dashboard - Admin">
@@ -20,3 +21,6 @@ Merupakan Website Akreditasi Sekolah yang didalamnya memuat file instrumen akred
 <img src="documentations/admin-setting-website.PNG" alt="Setting Website - Admin">
 <img src="documentations/admin-video.PNG" alt="Video - Admin">
 <strong>Frontend</strong>
+<img src="documentations/frontend-home.PNG" alt="Homepage - Frontend Web">
+<img src="documentations/front-end-instrumen.PNG" alt="Data Instrumen - Frontend Web">
+<img src="documentations/frontend-detail-instrumen.PNG" alt="Detail Instrumen - Frontend Web">
