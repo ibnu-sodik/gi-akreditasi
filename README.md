@@ -10,7 +10,7 @@ Merupakan Website Akreditasi Sekolah yang didalamnya memuat file instrumen akred
 </ul>
 
 # Fitur dan Dokumentasi
-<strong>Beckend</strong>
+<h2>Beckend</h2>
 <img src="documentations/admin-dashboard.PNG" alt="Dashboard - Admin">
 <img src="documentations/admin-data-instrumen.PNG" alt="Data Instrumen - Admin">
 <img src="documentations/admin-edit-instrumen.PNG" alt="Edit Instrumen - Admin">
@@ -20,7 +20,7 @@ Merupakan Website Akreditasi Sekolah yang didalamnya memuat file instrumen akred
 <img src="documentations/admin-setting-homepage.PNG" alt="Setting Homepage - Admin">
 <img src="documentations/admin-setting-website.PNG" alt="Setting Website - Admin">
 <img src="documentations/admin-video.PNG" alt="Video - Admin">
-<strong>Frontend</strong>
+<h2>Frontend</h2>
 <img src="documentations/frontend-home.PNG" alt="Homepage - Frontend Web">
 <img src="documentations/front-end-instrumen.PNG" alt="Data Instrumen - Frontend Web">
 <img src="documentations/frontend-detail-instrumen.PNG" alt="Detail Instrumen - Frontend Web">
