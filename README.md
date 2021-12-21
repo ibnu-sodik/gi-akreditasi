@@ -26,5 +26,5 @@ Merupakan Website Akreditasi Sekolah yang didalamnya memuat file instrumen akred
 <img src="documentations/frontend-detail-instrumen.PNG" alt="Detail Instrumen - Frontend Web">
 
 # Database
-Dapatkan database dari website diatas melalui link dibawah ini
-<a href="https://link.dana.id/minta/2pn73s1rupr">Download Database</a>
+Dapatkan database dari website diatas melalui link 
+<a href="https://link.dana.id/minta/2pn73s1rupr" target="_blank">Download Database</a>
