@@ -1,9 +1,9 @@
-<!-- <?php 
+<?php 
 
-//$str = "password";
-//echo sha1(md5($str));die();
+// $str = "password";
+// echo password_hash($str, PASSWORD_BCRYPT);die();
 
-?> -->
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>

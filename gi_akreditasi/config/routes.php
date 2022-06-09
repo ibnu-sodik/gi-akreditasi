@@ -79,3 +79,5 @@ $route['admin/aktivasi/(:any)']					= 'admin/aktivasi/index/$1';
 
 $route['404_override'] 			= 'halaman_404';
 $route['translate_uri_dashes'] 	= FALSE;
+// $route['item'] 					= "item";  
+// $route['getItem'] 				= "item/getItem";  

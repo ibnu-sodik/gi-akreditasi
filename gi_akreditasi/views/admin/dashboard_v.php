@@ -1,15 +1,11 @@
-
-<?php 
-
+<?php
 $str_rep_1 = str_replace('["', '', $bulan_ini);
 $str_rep_2 = str_replace('"]', '', $str_rep_1);
-
 for ($i=0; $i <= 12 ; $i++) { 
 	if ($i == $str_rep_2) {
 		$nama_bulan = date('F');
 	}
 }
-
 ?>
 <div class="page-header">
 	<h1>
@@ -160,7 +156,7 @@ for ($i=0; $i <= 12 ; $i++) {
 
 </div>
 
-<script src="<?= base_url('fileAdmin/highcharts/highchart.js') ?>"></script>
+<script src="<?= base_url('fileAdmin/highcharts/highchart.js'); ?>"></script>
 <script src="<?= base_url('fileAdmin/highcharts/highchart-more.js') ?>"></script>
 <script src="<?= base_url('fileAdmin/highcharts/dumbbell.js') ?>"></script>
 <script src="<?= base_url('fileAdmin/highcharts/lollipop.js') ?>"></script>
@@ -174,23 +170,23 @@ for ($i=0; $i <= 12 ; $i++) {
 	csrfHash = '<?php echo $this->security->get_csrf_hash(); ?>';
 
 	setInterval(function() {
-	var dataJson = {[csrfName]: csrfHash};
-	$.ajax({
-		url 		: "<?= base_url('admin/dashboard/get_aktivitas') ?>",
-		type 		: "POST",
-		dataType 	: "JSON",
-		data 		: dataJson,
-		success 	: function(data) {
-			csrfName = data.csrfName;
-			csrfHash = data.csrfHash;
-			$('#dataAktivitas').html(data.data_aktivitas);
-			$('#tabelKu').dataTable();
-		},
-		error: function(data) {
-			csfrData = {};
-			csfrData[data.csrfTokenName] = data.csrfTokenHash;
-		}
-	});
+		var dataJson = {[csrfName]: csrfHash};
+		$.ajax({
+			url 		: "<?= base_url('admin/dashboard/get_aktivitas') ?>",
+			type 		: "POST",
+			dataType 	: "JSON",
+			data 		: dataJson,
+			success 	: function(data) {
+				csrfName = data.csrfName;
+				csrfHash = data.csrfHash;
+				$('#dataAktivitas').html(data.data_aktivitas);
+				$('#tabelKu').dataTable();
+			},
+			error: function(data) {
+				csfrData = {};
+				csfrData[data.csrfTokenName] = data.csrfTokenHash;
+			}
+		});
 	}, 2000);
 
 

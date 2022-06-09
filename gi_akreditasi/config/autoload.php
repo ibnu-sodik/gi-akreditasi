@@ -100,6 +100,7 @@ $autoload['helper'] = array(
 	'url',
 	'file',
 	'fungsi',
+	'kalender_mahdi',
 	'text',
 	'html',
 	'form'

@@ -4,21 +4,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kategori_model extends CI_Model {
 
-	public function _update_kategori($id, $kategori, $slug)
+	public function _update_kategori($id, $kategori, $slug, $parent_id)
 	{
 		$object = array(
 			'nama_kategori' => $kategori,
-			'slug_kategori' => $slug
+			'slug_kategori' => $slug,
+			'parent_id' => $parent_id
 		);
 		$this->db->where('id_kategori', $id);
 		$this->db->update('tb_kategori', $object);
 	}
 
-	public function _simpan_kategori($kategori, $slug)
+	public function _simpan_kategori($kategori, $slug, $parent_id)
 	{
 		$object = array(
 			'nama_kategori' => $kategori,
-			'slug_kategori' => $slug
+			'slug_kategori' => $slug,
+			'parent_id' => $parent_id
 		);
 		$this->db->insert('tb_kategori', $object);
 	}

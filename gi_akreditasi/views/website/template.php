@@ -11,7 +11,8 @@ if (isset($canonical) && isset($url)) {
 $hari_ini = date('Y-m-d');
 
 ?>
-<!DOCTYPE html> <html lang="en-US">
+<!DOCTYPE html> 
+<html lang="en-US">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -119,6 +120,8 @@ $hari_ini = date('Y-m-d');
 						<div class="top-news border-left">
 							<span class="fa fa-calendar" style="margin-right: 5px"></span>
 							<span><?= tanggal_indo($hari_ini); ?></span>
+							<span style="margin-right: 1px">/</span>
+							<span><?= tanggal_mahdi($hari_ini); ?></span>
 							<span style="margin-right: 5px">|</span>
 							<span class="fa fa-clock-o" style="margin-right: 5px"></span>
 							<span id="timestamp"></span>

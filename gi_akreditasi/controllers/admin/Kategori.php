@@ -26,11 +26,12 @@ class Kategori extends CI_Controller {
 	public function update_kategori()
 	{
 		$id = $this->input->post('id_kategori',TRUE);
+		$parent_id 	= $this->input->post('parent_id', true);
 		$kategori = strip_tags(htmlspecialchars($this->input->post('kategori2',TRUE),ENT_QUOTES));
 		$string   = preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $kategori);
 		$trim     = trim($string);
 		$slug     = strtolower(str_replace(" ", "-", $trim));
-		$this->kategori_model->_update_kategori($id, $kategori, $slug);
+		$this->kategori_model->_update_kategori($id, $kategori, $slug, $parent_id);
 
 		// 0=login, 1=logout, 2=create, 3=update, 4=delete, 5=resetPass, 6=reply
 		$this->log_model->save_log($this->session->userdata('id_login'), 3, 'Merubah kategori menjadi '.$kategori);
@@ -41,11 +42,12 @@ class Kategori extends CI_Controller {
 
 	public function simpan_kategori()
 	{
+		$parent_id 	= $this->input->post('parent_id', true);
 		$kategori 	= strip_tags(htmlspecialchars($this->input->post('kategori',TRUE),ENT_QUOTES));
 		$string   	= preg_replace('/[^a-zA-Z0-9 \&%|{.}=,?!*()"-_+$@;<>\']/', '', $kategori);
 		$trim     	= trim($string);
 		$slug     	= strtolower(str_replace(" ", "-", $trim));
-		$this->kategori_model->_simpan_kategori($kategori, $slug);
+		$this->kategori_model->_simpan_kategori($kategori, $slug, $parent_id);
 
 		// 0=login, 1=logout, 2=create, 3=update, 4=delete, 5=resetPass, 6=reply
 		$this->log_model->save_log($this->session->userdata('id_login'), 2, 'Menambah kategori '.$kategori);
@@ -74,7 +76,7 @@ class Kategori extends CI_Controller {
 
 		$data['data_kategori']		= $this->kategori_model->get_data();
 
-		$this->template->load('admin/template', 'admin/kategori/data_v', $data);
+		$this->template->load('admin/template', 'admin/kategori/data2_v', $data);
 	}
 
 }

@@ -65,6 +65,24 @@ class Instrumen_model extends CI_Model {
 		return $query;
 	}
 
+	public function getKategori()
+	{
+		$query = "SELECT * FROM tb_kategori WHERE parent_id = 0";
+		return $this->db->query($query)->result_array();
+	}
+
+	public function getSubKategori($params)
+	{
+		$query = "SELECT * FROM tb_kategori WHERE parent_id = ?";
+		return $this->db->query($query, $params)->result_array();
+	}
+
+	public function getInstrumen($params)
+	{
+		$query = "SELECT * FROM tb_instrumen WHERE kategori_instrumen = ?";
+		return $this->db->query($query, $params)->result_array();		
+	}
+
 }
 
 /* End of file Instrumen_model.php */

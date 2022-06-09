@@ -1,43 +1,16 @@
-
+<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/bootstrap.min.css" />
+<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/bootstrap-treeview.min.css" />
 <div id="content" class="site-content">
 	<div class="container">
 		<div class="inner-wrapper">
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main" role="main">
-					<header>
-						<h1 class="page-title screen-reader-text">Blog</h1>
+					<header class="entry-header">
+						<h1 class="entry-title"></h1>
 					</header>
+					<div style="margin-bottom:5px "></div>
+					<div id="treeview2"></div>
 
-					<?php 
-					foreach($instrumen->result() as $row):
-						$konten = batasi_kata($row->deskripsi_instrumen, 15);
-						?>
-						<article id="post-<?= $row->id_instrumen ?>" class="post-<?= $row->id_instrumen ?> post type-post status-publish format-standard has-post-thumbnail hentry category-<?= strtolower($row->nama_kategori) ?>">
-							<header class="entry-header">
-								<h2 class="entry-title">
-									<a href="<?= site_url('instrumen/'.$row->slug_instrumen) ?>" rel="bookmark"><?= ucwords($row->nama_instrumen) ?></a>
-								</h2>
-								<div class="entry-meta">
-									<span class="posted-on">
-										<a href="javascript:void(0)" rel="bookmark">
-											<time class="entry-date published" datetime="<?= $row->tanggal_up ?>"><?= tanggal_indo($row->tanggal_up) ?></time>
-										</a>
-									</span>	
-								</div>
-							</header>
-
-							<div class="entry-content">
-								<?= nl2br($konten) ?>
-							</div>
-
-							<footer class="entry-footer">
-								<span class="cat-links">
-									<a href="<?= site_url('kategori/'.$row->slug_kategori) ?>" rel="category tag"><?= ucwords($row->nama_kategori) ?></a>
-								</span>
-							</footer>
-						</article>
-					<?php endforeach; ?>
-					<?= $pagination; ?>
 					<div style="margin-bottom:5px "></div>
 				</main>
 			</div>
@@ -99,3 +72,51 @@
 		</div>
 	</div>
 </div>
+<script src="<?= base_url() ?>fileAdmin/js/bootstrap-treeview.js"></script>
+<script type="text/javascript">
+	var defaultData = [
+	<?php
+	$kategori = $this->instrumen_model->getKategori();
+	$no = 0;
+	foreach ($kategori as $key => $value) {
+		$no++;
+		$subKat = $this->instrumen_model->getSubKategori($value['id_kategori']);
+		echo "{
+			text: '$no. $value[nama_kategori]',
+			tags: ['".count($subKat)."'],
+			nodes : [
+			";
+			$no1 = 0;
+			foreach ($subKat as $key2 => $value2) {
+				$no1++;
+				$instrumen = $this->instrumen_model->getInstrumen($value2['id_kategori']);
+				echo "{
+					text: '$no1. $value2[nama_kategori]',
+					tags: ['".count($instrumen)."'],
+					nodes: [
+					";
+					$no2 = 0;
+					foreach ($instrumen as $key3 => $value3) {
+						$no2++;
+						$link = site_url('instrumen/'.$value3["slug_instrumen"]);
+						echo "{text: '".$no2.". <a href=".$link.">".ucwords($value3['nama_instrumen'])."</a>'},";
+					}
+					echo "]
+				},";
+			}
+			echo "]
+		},";
+
+	}
+	?>
+	];
+
+	$('#treeview2').treeview({
+		levels: 1,
+		expandIcon: 'glyphicon glyphicon-folder-close',
+		collapseIcon: 'glyphicon glyphicon-folder-open',
+		showTags: true,
+		enableLinks: true,
+		data: defaultData
+	});
+</script>

@@ -1,21 +1,17 @@
-<?php 
-
+<!DOCTYPE HTML> 
+<html lang="en-US">
+<?php
 if ($this->session->userdata('login_goblog') != TRUE) {
 	$text = "Silahkan login terlebih dahulu.";
 	$this->session->set_flashdata('swalInfo', $text);
 	$url = base_url('admin');
 	redirect($url);
 }
-
 $user_id 	= $this->session->userdata('id_login');
 $query 		= $this->db->get_where('tb_user', array('id' => $user_id));
 $user_data 	= $query->row_array();
-
 $timestamp = strtotime(date('Y-m-d H:i:s'));
-
 ?>
-<!DOCTYPE html>
-<html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<?php if(isset($title)): ?>
@@ -40,41 +36,41 @@ $timestamp = strtotime(date('Y-m-d H:i:s'));
 	<meta property="og:url" content="<?= $url; ?>" />
 	<meta property="og:site_name" content="<?= $site_name;?>" />
 
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/font-awesome/4.5.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/fonts.googleapis.com.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/fonts.googleapis.com.css" />
 
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/jquery-ui.custom.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/chosen.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/colorbox.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/ace-skins.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/ace-rtl.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/dropify/dropify.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/select2.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/pnotify.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/toastr.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/ace-ie.min.css" />
-	<link rel="stylesheet" href="<?= base_url() ?>fileAdmin/css/custom.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/jquery-ui.custom.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/chosen.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/colorbox.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/ace-rtl.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/dropify/dropify.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/select2.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/pnotify.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/toastr.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/ace-ie.min.css" />
+	<link rel="stylesheet" href="<?= base_url(); ?>fileAdmin/css/custom.css" />
 
-	<script src="<?= base_url() ?>fileAdmin/js/jquery-2.1.4.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/bootstrap.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/ace-extra.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/jquery-2.1.4.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/bootstrap.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/ace-extra.min.js"></script>
 
-	<script src="<?= base_url() ?>fileAdmin/js/jquery.dataTables.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/jquery.dataTables.bootstrap.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/select2.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/chosen.jquery.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/jquery.dataTables.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/jquery.dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" src="<?= base_url('fileAdmin/js/select2.min.js'); ?>"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/chosen.jquery.min.js"></script>
 
-	<script src="<?= base_url() ?>fileAdmin/js/jquery-ui.custom.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/jquery-ui.custom.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/jquery.ui.touch-punch.min.js"></script>
 
-	<script src="<?= base_url() ?>fileAdmin/js/jquery.colorbox.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/jquery.toast.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/ace-elements.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/ace.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/jquery.colorbox.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/jquery.toast.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/ace-elements.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/ace.min.js"></script>
 
 </head>
 
@@ -126,7 +122,7 @@ $timestamp = strtotime(date('Y-m-d H:i:s'));
 		<div class="swal-error" data-flashdata="<?= $this->session->flashdata('swalError'); ?>"></div>
 		<div class="swal-sukses" data-flashdata="<?= $this->session->flashdata('swalSukses'); ?>"></div>
 
-		<div class="pnotify-sukses" data-flashdata="<?= $this->session->flashdata('pnotifySukses'); ?>"></div>
+		<div class="pnotify-admin" data-flashdata="<?= $this->session->flashdata('pnotifySukses'); ?>"></div>
 		<div class="pnotify-notice" data-flashdata="<?= $this->session->flashdata('pnotifyWarning'); ?>"></div>
 		<div class="pnotify-info" data-flashdata="<?= $this->session->flashdata('pnotifyInfo'); ?>"></div>
 		<div class="pnotify-error" data-flashdata="<?= $this->session->flashdata('pnotifyError'); ?>"></div>
@@ -157,16 +153,17 @@ $timestamp = strtotime(date('Y-m-d H:i:s'));
 			<i class="ace-icon fa fa-angle-double-up icon-only bigger-200"></i>
 		</a>
 	</div>
-	<script src="<?= base_url() ?>fileAdmin/js/jquery.pnotify.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/sweetalert.min.js"></script>
-	<script src="<?= base_url() ?>fileAdmin/js/notifikasi.js"></script>
+	
+	<script src="<?= base_url(); ?>fileAdmin/js/jquery.pnotify.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/sweetalert.min.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/notifikasi.js"></script>
 
 	<script type="text/javascript">
-		if('ontouchstart' in document.documentElement) document.write("<script src='<?= base_url() ?>fileAdmin/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		if('ontouchstart' in document.documentElement) document.write("<script src='<?= base_url(); ?>fileAdmin/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 	</script>
 
 
-	<script src="<?= base_url() ?>fileAdmin/js/custom.js"></script>
+	<script src="<?= base_url(); ?>fileAdmin/js/custom.js"></script>
 
 	<script type="text/javascript">
 		$(function() {
