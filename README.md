@@ -27,4 +27,4 @@ Merupakan Website Akreditasi Sekolah yang didalamnya memuat file instrumen akred
 
 # Database
 Dapatkan database dari website diatas melalui link 
-<a href="https://link.dana.id/minta/2pn73s1rupr" target="_blank">Download Database</a>
+<a href="https://wa.me/6281314225017" target="_blank">Download Database</a>
