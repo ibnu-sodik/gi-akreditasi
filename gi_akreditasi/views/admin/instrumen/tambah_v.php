@@ -126,6 +126,7 @@
 		</div>
 	</div>
 	
+	<script src="<?= base_url() ?>fileAdmin/dropify/dropify.min.js"></script>
 	<script src="<?= base_url() ?>fileAdmin/summernote/summernote.js"></script>
 	<script src="<?= base_url() ?>fileAdmin/summernote/lang/summernote-id-ID.js"></script>
 	<script src="<?= base_url() ?>fileAdmin/js/chosen.jquery.min.js"></script>
