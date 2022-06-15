@@ -10,6 +10,7 @@ class Kategori_model extends CI_Model {
 			SELECT tb_instrumen.*, tb_kategori.* FROM tb_kategori
 			LEFT JOIN tb_instrumen ON kategori_instrumen = id_kategori
 			WHERE id_kategori != '$kategori_instrumen'
+			AND tb_instrumen.kategori_instrumen = tb_kategori.id_kategori
 			ORDER BY id_kategori, nama_kategori ASC;
 			");
 		return $query;
@@ -21,6 +22,26 @@ class Kategori_model extends CI_Model {
 		$this->db->from('tb_kategori');
 		$this->db->order_by('nama_kategori', 'asc');
 		$query = $this->db->get();
+		return $query;
+	}
+
+	public function get_kategori_terisi()
+	{
+		$query = $this->db->query("
+			SELECT
+			tb_instrumen.kategori_instrumen, 
+			tb_kategori.*
+			FROM
+			tb_instrumen
+			INNER JOIN
+			tb_kategori
+			ON 
+			tb_instrumen.kategori_instrumen = tb_kategori.id_kategori
+			WHERE
+			tb_instrumen.kategori_instrumen = tb_kategori.id_kategori 
+			GROUP BY
+			tb_kategori.id_kategori
+			");
 		return $query;
 	}
 

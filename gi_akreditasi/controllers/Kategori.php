@@ -36,7 +36,7 @@ class Kategori extends CI_Controller {
 		$data['title']				= "Kategori";
 		$data['video']				= $this->beranda_model->get_video();
 		$data['instrumen_baru']		= $this->instrumen_model->get_instrumen_baru_limit($site['limit_post']);
-		$data['all_kategori']			= $this->kategori_model->get_kategori();
+		$data['kategori_terisi']	= $this->kategori_model->get_kategori_terisi();
 
 		$data_kategori				= $this->kategori_model->get_instrumen_by_kategori($slug);
 		if ($data_kategori->num_rows() > 0) {

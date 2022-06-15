@@ -171,10 +171,20 @@ $hari_ini = date('Y-m-d');
 								<div class="menu-quick-links-container">
 									<ul id="menu-quick-links-1" class="menu">
 										<?php 
-										$query = $this->db->query("SELECT * FROM tb_kategori ORDER BY id_kategori ASC LIMIT 6");
+										$query = $this->db->query("SELECT
+											tb_instrumen.kategori_instrumen,
+											tb_kategori.* 
+											FROM
+											tb_instrumen
+											LEFT JOIN tb_kategori ON tb_instrumen.kategori_instrumen = tb_kategori.id_kategori 
+											WHERE
+											tb_instrumen.kategori_instrumen = tb_kategori.id_kategori
+											GROUP BY
+											tb_kategori.id_kategori
+											ORDER BY id_kategori ASC LIMIT 6");
 										foreach($query->result() as $row):
-											$query = $this->db->query("SELECT * FROM tb_instrumen WHERE kategori_instrumen = '$row->id_kategori'");
-											$jumlah_data = $query->num_rows();
+											$query2 = $this->db->query("SELECT * FROM tb_instrumen WHERE kategori_instrumen = '$row->id_kategori'");
+											$jumlah_data = $query2->num_rows();
 											?>
 											<li class="menu-item menu-item-<?= $row->id_kategori ?>">
 												<a href="<?= site_url('kategori/'.$row->slug_kategori) ?>">

@@ -77,12 +77,12 @@
 
 			<div id="sidebar-primary" class="widget-area" role="complementary">
 
-				<?php if ($kategori->num_rows() > 0): ?>
+				<?php if ($kategori_terisi->num_rows() > 0): ?>
 					<aside id="categories-2" class="widget widget_categories">
-						<h2 class="widget-title">Kategori Instrumen <span style="float: right;">(<?= $kategori->num_rows() ?>)</span></h2>
+						<h2 class="widget-title">Kategori Instrumen <span style="float: right;">(<?= $kategori_terisi->num_rows() ?>)</span></h2>
 						<ul>
 							<?php 
-							foreach ($kategori->result() as $row):
+							foreach ($kategori_terisi->result() as $row):
 								$query = $this->db->query("SELECT * FROM tb_instrumen WHERE kategori_instrumen = '$row->id_kategori'");
 								$jumlah_data = $query->num_rows();
 								?>

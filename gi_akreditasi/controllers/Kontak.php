@@ -63,7 +63,7 @@ class Kontak extends CI_Controller {
 
 		$data['video']				= $this->beranda_model->get_video();
 		$data['instrumen_baru']		= $this->instrumen_model->get_instrumen_baru_limit($site['limit_post']);
-		$data['kategori']			= $this->kategori_model->get_kategori();
+		$data['kategori_terisi']			= $this->kategori_model->get_kategori_terisi();
 		
 		$data['form_action']		= site_url("kontak/kirim-pesan");
 

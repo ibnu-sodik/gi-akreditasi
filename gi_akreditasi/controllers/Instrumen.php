@@ -153,7 +153,7 @@ class Instrumen extends CI_Controller {
 		$data['title']				= "Instrumen";
 		$data['video']				= $this->beranda_model->get_video();
 		$data['instrumen_baru']		= $this->instrumen_model->get_instrumen_baru_limit($site['limit_post']);
-		$data['kategori']			= $this->kategori_model->get_kategori();
+		$data['kategori_terisi']	= $this->kategori_model->get_kategori_terisi();
 
 		$this->template->load('website/template', 'website/instrumen/data_v', $data);
 		
